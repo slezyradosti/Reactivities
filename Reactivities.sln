@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{01ADABBE-D76E-4FE6-8D79-AEE501A31D5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{01ADABBE-D76E-4FE6-8D79-AEE501A31D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{5CCE0B9A-FE76-4107-8202-C37759CA9BE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{5CCE0B9A-FE76-4107-8202-C37759CA9BE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{0F4A38D3-1A52-4E0F-96D9-8A0BD9E4D419}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{0F4A38D3-1A52-4E0F-96D9-8A0BD9E4D419}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{A7B81885-F407-4BD6-B11A-BE6200A17025}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{A7B81885-F407-4BD6-B11A-BE6200A17025}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "client-app", "Client-app\client-app.esproj", "{5A11D73C-6B2A-4BA4-8E85-5367B706669F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,12 @@ Global
 		{A7B81885-F407-4BD6-B11A-BE6200A17025}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7B81885-F407-4BD6-B11A-BE6200A17025}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7B81885-F407-4BD6-B11A-BE6200A17025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A11D73C-6B2A-4BA4-8E85-5367B706669F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A11D73C-6B2A-4BA4-8E85-5367B706669F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A11D73C-6B2A-4BA4-8E85-5367B706669F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5A11D73C-6B2A-4BA4-8E85-5367B706669F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A11D73C-6B2A-4BA4-8E85-5367B706669F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A11D73C-6B2A-4BA4-8E85-5367B706669F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
