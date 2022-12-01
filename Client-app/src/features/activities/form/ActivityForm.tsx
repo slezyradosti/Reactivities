@@ -1,17 +1,12 @@
+import { observer } from 'mobx-react-lite';
 import React, { ChangeEvent, useState } from 'react';
 import { Button, Form, Segment } from 'semantic-ui-react';
-import { Activity } from '../../../app/models/activity';
+import { useStore } from '../../../app/stores/store';
 
-interface Props {
-    activity: Activity | undefined;
-    closeForm: () => void;
-    createOrEdit: (activity: Activity) => void;
-    submitting: boolean;
-}
+export default observer( function ActivityForm() {
+    const { activityStore } = useStore();
 
-export default function ActivityForm(props: Props) {
-
-    const initialState = props.activity ?? {
+    const initialState = activityStore.selectedActivity ?? {
         id: '',
         title: '',
         category: '',
@@ -24,7 +19,7 @@ export default function ActivityForm(props: Props) {
     const [activity, setActivity] = useState(initialState);
 
     function handleSubmit() {
-        props.createOrEdit(activity);
+        activity.id ? activityStore.updateActivity(activity) : activityStore.createActivity(activity);
     }
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -41,9 +36,9 @@ export default function ActivityForm(props: Props) {
                 <Form.Input type='date' placeholder='Date' value={activity.date} name='date' onChange={handleInputChange} />
                 <Form.Input placeholder='City' value={activity.city} name='city' onChange={handleInputChange} />
                 <Form.Input placeholder='Venue' value={activity.venue} name='venue' onChange={handleInputChange} />
-                <Button loading={props.submitting} floated='right' positive type='submit' content='Submit' onChange={handleInputChange} />
-                <Button onClick={props.closeForm} floated='right' type='button' content='Cancel' onChange={handleInputChange} />
+                <Button loading={activityStore.loading} floated='right' positive type='submit' content='Submit' onChange={handleInputChange} />
+                <Button onClick={activityStore.closeForm} floated='right' type='button' content='Cancel' onChange={handleInputChange} />
             </Form>
         </Segment>
     )
-}
+})
