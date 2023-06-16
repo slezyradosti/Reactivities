@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
@@ -24,11 +24,11 @@ namespace API
 {
     public class Startup
     {
-        private readonly IConfiguration _ñonfiguration;
+        private readonly IConfiguration _Ã±onfiguration;
 
         public Startup(IConfiguration configuration)
         {
-            _ñonfiguration = configuration;
+            _Ã±onfiguration = configuration;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -36,7 +36,7 @@ namespace API
         {
             services.AddControllers();
 
-            services.AddApplicationServices(_ñonfiguration);
+            services.AddApplicationServices(_Ã±onfiguration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,10 +10,10 @@ namespace Application.Activities
     {
         public class Query : IRequest<Result<List<Activity>>> {}
 
-        public class Hundler : IRequestHandler<Query, Result<List<Activity>>>
+        public class Handler : IRequestHandler<Query, Result<List<Activity>>>
         {
             private readonly DataContext _context;
-            public Hundler(DataContext context) 
+            public Handler(DataContext context) 
             {
                 _context = context;
             }

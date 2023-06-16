@@ -27,7 +27,7 @@ namespace API
                 await context.Database.MigrateAsync();
                 await Seed.SeedData(context);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var logger = services.GetRequiredService<ILogger<Program>>();
                 logger.LogError(ex, "An error occured during migration");

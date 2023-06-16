@@ -34,7 +34,7 @@ namespace API.Extensions
                     .AllowCredentials();
                 });
             });
-            services.AddMediatR(typeof(List.Hundler).Assembly);
+            services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssemblyContaining<Create>();
