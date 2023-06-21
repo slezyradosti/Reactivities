@@ -13,7 +13,7 @@ export default observer( function ActivityDashboard() {
         if (activityStore.activityRegistry.size <= 1) activityStore.loadActivities();
     }, [activityStore.activityRegistry.size, activityStore.loadActivities]) // ,[]  -> only runs one time. was a loop 
 
-    if (activityStore.loadingInitial) return <LoadingComponent content='Loading app' />
+    if (activityStore.loadingInitial) return <LoadingComponent content='Loading activities...' />
 
     return (
         <Grid>
