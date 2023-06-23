@@ -1,6 +1,8 @@
 ﻿using API.Services;
 using Domain;
+using Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
 using System.Text;
@@ -33,7 +35,16 @@ namespace API.Extensions
                     };
                 });
 
-            services.AddScoped<TokenService>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("IsActivityHost", policy =>
+                {
+                    policy.Requirements.Add(new IsHostRequirement());
+                });
+            });
+
+            services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>();// transient  - while the metod is running
+            services.AddScoped<TokenService>(); //scoped = during the http request
 
             return services;
         }

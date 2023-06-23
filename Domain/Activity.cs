@@ -15,5 +15,8 @@ namespace Domain
         public string City { get; set; }
         [StringLength(100)]
         public string Venue { get; set; }
+        public bool IsCancelled { get; set; }
+
+        public ICollection<ActivityAppuser> Appusers { get; set;} = new List<ActivityAppuser>();
     }
 }
