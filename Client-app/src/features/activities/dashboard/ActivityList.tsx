@@ -7,7 +7,6 @@ import ActivityListItem from './ActivityListItem';
 export default observer(function ActivityList() {
     const { activityStore } = useStore();
     const { groupedActivities } = activityStore;
-
     return (
         <>
             {groupedActivities.map(([group, activities]) => (
