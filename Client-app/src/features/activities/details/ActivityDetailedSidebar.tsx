@@ -1,10 +1,7 @@
-import React from 'react'
 import { Segment, List, Label, Item, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { Profile } from '../../../app/models/profile'
 import { Activity } from '../../../app/models/activity'
-import App from '../../../app/layout/App'
 interface Props {
     activity: Activity;
 }
