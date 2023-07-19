@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using API.Extensions;
 using API.Middleware;
+using API.SignalR;
 using Application.Activities;
 using Application.Core;
 using MediatR;
@@ -58,6 +60,7 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
             }
 
+            app.UseHsts();
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -70,6 +73,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chat");
             });
         }
     }

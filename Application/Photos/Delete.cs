@@ -38,11 +38,16 @@ namespace Application.Photos
 
                 if (photo.IsMain) return Result<Unit>.Failure("You cannot delete your main photo");
 
+                //delete photo from cloudinary
                 var result = await _photoAccessor.DeletePhotoAsync(photo.Id);
 
                 if (result == null) return Result<Unit>.Failure("Problem deleting photo from Cloudinary");
             
-                user.Photos.Remove(photo);       
+                // delete photo from DB from user
+                user.Photos.Remove(photo);
+
+                //delete photo from DB from photos
+                _context.Photos.Remove(photo);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

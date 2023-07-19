@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Persistence;
+using System.Net;
 
 namespace API.Extensions
 {
@@ -30,12 +31,18 @@ namespace API.Extensions
             {
                 options.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.WithOrigins("http://localhost:3000", "https://localhost:3000")
+                    policy.WithOrigins("http://localhost:3000", "https://localhost:3001")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
-                    .SetIsOriginAllowed((host) => true)
-                    .AllowCredentials();
+                    .AllowCredentials();                   
+
+                    //.SetIsOriginAllowed((host) => true);
+
                 });
+            });
+            services.AddHttpsRedirection(options =>
+            {
+                options.HttpsPort = 3001;
             });
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddAutoMapper(typeof(MappingProfiles).Assembly);
@@ -45,6 +52,7 @@ namespace API.Extensions
             services.AddScoped<IUserAccessor, UserAccessor>();
             services.AddScoped<IPhotoAccessor, PhotoAccessor>();
             services.Configure<CloudinarySettings>(configuration.GetSection("Cloudinary"));
+            services.AddSignalR();
 
             return services;
         }

@@ -18,5 +18,6 @@ namespace Domain
         public bool IsCancelled { get; set; }
 
         public ICollection<ActivityAppuser> Appusers { get; set;} = new List<ActivityAppuser>();
+        public ICollection<Comment> Comments { get; set;} = new List<Comment>();
     }
 }
